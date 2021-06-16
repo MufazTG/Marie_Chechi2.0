@@ -18,39 +18,36 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-ഹായ് {}, എന്റെ പേര് {}! എന്നെ ഉപയോഗിക്കേണ്ടത് എങ്ങനെ ആണെന്നുള്ളതിൽ എന്തേലും സംശയം ഉണ്ടെങ്കിൽ /help കൊടുത്താൽ മതിയാകും... 
-എന്റെ ന്യൂ ഫീച്ചേർസ് ചാനലിൽ @MarieChechi ഇടുന്നതായിരിക്കും. സംശയങ്ങൾക്ക് @InFoTelGroup എന്ന ഗ്രൂപ്പിൽ വരാവുന്നതാണ്.....
 
-എന്നെ നോക്കി നടത്തുന്നത്  [ഇദ്ദേഹം](tg://user?id={}) ആണ് . എന്നെ നിർമിച്ചിരിക്കുന്നത് python3യിൽ 
-python-telegram-bot library ഉപയോഗിച്ചാണ്.... ഞാൻ പൂർണമായും opensource ആണ്.. എന്റെ കോഡ് നിങ്ങൾക്ക് [ഇവിടെ](https://heroku.com/deploy?template=https://github.com/TGExplore/Marie_Chechi2.0) കാണാവുന്നതാണ്...
-എന്നെ ഉപയോഗിക്കാൻ ആവിശ്യമായ commandകൾ അറിയാൻ /help കൊടുത്താൽ മതിയാകും..
+Hai {}, എന്റെ പേര് {}! എന്നെ നിർമിച്ചത് [ഇദ്ദേഹം](tg://user?id={}) ആണ്‌.
+
+എന്നെ നിർമ്മിച്ചിരിക്കുന്നത് python3 യിൽ python-telegram-bot ലൈബ്രറി ഉപയോഗിച്ചാണ്. ഞാൻ പൂർണ്ണമായിട്ടും ഓപ്പൺസോഴ്സ്ഡ് ആണ്. എന്റെ കോഡ് നിങ്ങൾക്ക് [ഇവിടെ](https://heroku.com/deploy?template=https://github.com/mufazTG/tgbot) കാണുവാൻ സാധിക്കും.
+
+എന്റെ അപ്ഡേറ്റുകളെക്കുറിച്ചും പ്രവർത്തനത്തെപറ്റിയും അറിയുവാൻ അപ്ഡേറ്റ് ചാനൽ സബ്സ്ക്രൈബ് ചെയ്യുക.
+
+ലഭ്യമായ കമാന്റുകളെപ്പറ്റി അറിയുവാൻ /help അമർത്തുക.
 വിവരങ്ങൾക്കായി /info  ഉപയോഗിക്കാവുന്നതാണ്...
-
-Using standard [Marie](http://telegram.dog/BanhammerMarie_bot) is always gonna be easier.
-എന്റെ ചേച്ചിയായ [Marie](http://telegram.dog/BanhammerMarie_bot) ഉപയോഗിക്കുന്നത് എല്ലായ്പ്പോഴും എളുപ്പമായിരിക്കും. മേരി ചേച്ചിക്ക് English മാത്രമേ അറിയൂ..
 
 """
 
 HELP_STRINGS = """
-നമസ്കാരം ! എന്റെ പേര് *{}*.
-
-ഞാൻ ടെലെഗ്രാമിലെ Group Management Bot ആണ്... എന്നെ പ്രവർത്തിപ്പിക്കേണ്ട വിധം ആണ് താഴെ കൊടുത്തിട്ടുള്ളത്....
-
-*Main* ലഭ്യമായ commandകൾ:
- - /start: Botനെ Start ചെയ്യാൻ...
- - /help: ഈ മെസ്സേജ് നിങ്ങളുടെ PM വരാൻ....
- - /help <module name>: ഒരു MODULE നെക്കുറിച്ചുള്ള വിവരം നിങ്ങളുടെ PMൽ വരാൻ....
- - /donate: സംഭാവന നൽകുന്നതിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ അറിയാൻ!
+Hey there! My name is *{}*.
+I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
+the things I can help you with.
+*Main* commands available:
+ - /start: start the bot
+ - /help: PM's you this message.
+ - /help <module name>: PM's you info about that module.
+ - /donate: information about how to donate!
  - /settings:
-   - in PM:നിങ്ങൾ സെറ്റ് ചെയ്തിട്ടുള്ള SETTINGS എന്തൊക്കെ ആണെന്ന് അറിയാൻ....
-   - in a group:ഗ്രൂപ്പിൽ കൊടുത്താലും  PMൽ settings വരുന്നതാണ്....
-
+   - in PM: will send you your settings for all supported modules.
+   - in a group: will redirect you to pm, with all that chat's settings.
 {}
 And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nഈ പറഞ്ഞിരിക്കുന്ന commandകൾ എല്ലാം  / അല്ലെങ്കിൽ ! വെച്ച് ഉപയോഗിക്കാവുന്നതാണ്...\n")
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
-It took lots of work for [my creator](t.me/sonoflars) to get me to where I am now, and every donation helps \
+It took lots of work for [my creator](t.me/SonOfLars) to get me to where I am now, and every donation helps \
 motivate him to make me even better. All the donation money will go to a better VPS to host me, and/or beer \
 (see his bio!). He's just a poor student, so every little helps!
 There are two ways of paying him; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
@@ -65,6 +62,8 @@ DATA_EXPORT = []
 
 CHAT_SETTINGS = {}
 USER_SETTINGS = {}
+
+GDPR = []
 
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("tg_bot.modules." + module_name)
@@ -85,6 +84,9 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__stats__"):
         STATS.append(imported_module)
+
+    if hasattr(imported_module, "__gdpr__"):
+        GDPR.append(imported_module)
 
     if hasattr(imported_module, "__user_info__"):
         USER_INFO.append(imported_module)
@@ -143,9 +145,14 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN)
+
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(
+                    [[InlineKeyboardButton(text="🎉 Add me to your group", url="t.me/{}?startgroup=true".format(bot.username)),  InlineKeyboardButton(text="🤖 Make Own Admin Bot", url="t.me/BXSUPPORT")],
+                     [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/BXSUPPORT"), InlineKeyboardButton(text="🤖 Update Channel", url="https://t.me/BX_Botz")],
+                     [InlineKeyboardButton(text="🎬 Movie Group", url="https://t.me/mallu_Movie_World"), InlineKeyboardButton(text="🛠 Help", url="https://t.me/{}?start=help".format(bot.username)) ]]))
+
     else:
-        update.effective_message.reply_text("ഹായ് മച്ചാൻ,  എന്താണ്??")
+        update.effective_message.reply_text("ചത്തിട്ടില്ലാ...")
 
 
 # for test purposes
@@ -374,7 +381,7 @@ def donate(bot: Bot, update: Update):
     if chat.type == "private":
         update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-        if OWNER_ID != 254318997 and DONATION_LINK:
+        if OWNER_ID != 1247076052 and DONATION_LINK:
             update.effective_message.reply_text("You can also donate to the person currently running me "
                                                 "[here]({})".format(DONATION_LINK),
                                                 parse_mode=ParseMode.MARKDOWN)
@@ -407,6 +414,26 @@ def migrate_chats(bot: Bot, update: Update):
     raise DispatcherHandlerStop
 
 
+@run_async
+def kcfrsct_fnc(bot: Bot, update: Update):
+    query = update.callback_query
+    user = update.effective_user
+    _match = re.match(r"rsct_(.*)_33801", query.data)
+    # ensure no spinny white circle
+    if _match:
+        try:
+            from tg_bot.modules.sql.cust_filters_sql import get_btn_with_di
+            _soqka = get_btn_with_di(int(_match.group(1)))
+            query.answer(
+                text=_soqka.url.replace("\\n", "\n").replace("\\t", "\t"),
+                # HPFPOCWBANER: https://stackoverflow.com/a/42965750
+                show_alert=True
+            )
+        except Exception as e:
+            print(e)
+            bot.answer_callback_query(query.id)
+
+
 def main():
     test_handler = CommandHandler("test", test)
     start_handler = CommandHandler("start", start, pass_args=True)
@@ -428,6 +455,9 @@ def main():
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(donate_handler)
+    dispatcher.add_handler(
+        CallbackQueryHandler(kcfrsct_fnc, pattern=r"")
+    )
 
     # dispatcher.add_error_handler(error_callback)
 
