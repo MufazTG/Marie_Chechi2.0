@@ -28,7 +28,7 @@ PM_START_TEXT = """
 
 For More Details Click /help
 
-👲 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : [ιнѕαи_ραℓσℓι ◬](https://t.me/Ihsan_paloli)
+👲 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : [ιнѕαи_ραℓσℓι ◬](tg://user?id={})
 """
 
 HELP_STRINGS = """
